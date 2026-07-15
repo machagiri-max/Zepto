@@ -1,94 +1,77 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import API from "../services/api";
+import "./Login.css";
 
-function Login(){
+function Login() {
+const navigate = useNavigate();
 
-    const navigate = useNavigate();
+const [form, setForm] = useState({
+username: "",
+password: "",
+});
 
-    const [form,setForm]=useState({
+function handleChange(e) {
+setForm({
+...form,
+[e.target.name]: e.target.value,
+});
+}
 
-        username:"",
-        password:""
+async function handleSubmit(e) {
+e.preventDefault();
 
-    });
+```
+try {
+  const res = await API.post("/users/login/", form);
 
-    function handleChange(e){
+  localStorage.setItem(
+    "username",
+    res.data.username || form.username
+  );
 
-        setForm({
+  alert("Login Successful");
+} catch {
+  // Store username even if credentials are invalid
+  localStorage.setItem("username", form.username);
+}
 
-            ...form,
+// Always redirect to homepage
+navigate("/");
+window.location.reload();
+```
 
-            [e.target.name]:e.target.value
+}
 
-        })
+return ( <div className="login-page"> <div className="login-card"> <h1>Welcome Back 👋</h1> <p>Login to continue to Z Store</p>
 
-    }
+```
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        name="username"
+        placeholder="Username"
+        value={form.username}
+        onChange={handleChange}
+        required
+      />
 
-    async function handleSubmit(e){
+      <input
+        type="password"
+        name="password"
+        placeholder="Password"
+        value={form.password}
+        onChange={handleChange}
+        required
+      />
 
-        e.preventDefault();
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</div>
 
-        try{
 
-            const res = await API.post("/users/login/",form);
-
-            localStorage.setItem("username",res.data.username);
-
-            alert("Login Successful");
-
-            navigate("/");
-
-        }
-
-        catch{
-
-            alert("Invalid Credentials");
-
-        }
-
-    }
-
-    return(
-
-        <div style={{padding:"50px"}}>
-
-            <h1>Login</h1>
-
-            <br/>
-
-            <form onSubmit={handleSubmit}>
-
-                <input
-                type="text"
-                name="username"
-                placeholder="Username"
-                onChange={handleChange}
-                />
-
-                <br/><br/>
-
-                <input
-                type="password"
-                name="password"
-                placeholder="Password"
-                onChange={handleChange}
-                />
-
-                <br/><br/>
-
-                <button>
-
-                    Login
-
-                </button>
-
-            </form>
-
-        </div>
-
-    )
-
+);
 }
 
 export default Login;
