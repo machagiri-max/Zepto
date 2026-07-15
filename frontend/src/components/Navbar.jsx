@@ -24,7 +24,7 @@ function Navbar() {
 
       {/* Right Side */}
       <div className="nav-right">
-        {username ? (
+        {username && (
           <>
             <span
               style={{
@@ -52,11 +52,6 @@ function Navbar() {
             >
               Logout
             </button>
-          </>
-        ) : (
-          <>
-            <Link to="/login">Login</Link>
-            <Link to="/signup">Signup</Link>
           </>
         )}
 
