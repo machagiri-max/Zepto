@@ -1,0 +1,151 @@
+.offer-banner{
+
+    width:100%;
+
+    min-height:350px;
+
+    background:linear-gradient(135deg,#5b0eb6,#8a2be2);
+
+    border-radius:20px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:40px;
+
+    margin:30px 0;
+
+    overflow:hidden;
+
+}
+
+.offer-left{
+
+    color:white;
+
+}
+
+.offer-tag{
+
+    background:#FFD600;
+
+    color:black;
+
+    padding:10px 20px;
+
+    border-radius:30px;
+
+    font-weight:bold;
+
+}
+
+.offer-left h1{
+
+    margin-top:25px;
+
+    font-size:60px;
+
+}
+
+.offer-left h1 span{
+
+    color:#FFD600;
+
+}
+
+.offer-left h2{
+
+    margin-top:10px;
+
+    font-size:35px;
+
+}
+
+.coupon{
+
+    margin-top:25px;
+
+    width:280px;
+
+    border:2px dashed white;
+
+    padding:15px;
+
+    font-size:22px;
+
+    border-radius:10px;
+
+}
+
+.shop-btn{
+
+    margin-top:30px;
+
+    width:220px;
+
+    height:60px;
+
+    border:none;
+
+    background:white;
+
+    color:#5b0eb6;
+
+    border-radius:12px;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+}
+
+.shop-btn:hover{
+
+    background:#FFD600;
+
+}
+
+.offer-right img{
+
+    width:500px;
+
+    border-radius:20px;
+
+}
+
+@media(max-width:900px){
+
+.offer-banner{
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+.offer-right img{
+
+width:100%;
+
+margin-top:30px;
+
+}
+
+.offer-left h1{
+
+font-size:40px;
+
+}
+
+.offer-left h2{
+
+font-size:25px;
+
+}
+
+}

@@ -1,0 +1,25 @@
+.category-card{
+    width:170px;
+    background:white;
+    border-radius:15px;
+    text-align:center;
+    padding:15px;
+    cursor:pointer;
+    transition:.3s;
+    box-shadow:0 0 10px rgba(0,0,0,.1);
+}
+
+.category-card:hover{
+    transform:translateY(-5px);
+}
+
+.category-card img{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.category-card h3{
+    margin-top:15px;
+}
